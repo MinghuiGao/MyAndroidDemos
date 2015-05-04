@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="3dip" >
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_vediocapture_savepath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存路径"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/et_vediocapture_savepath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/bt_vediocapture_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="录像" />
+
+    <!-- 获取savepath下的录像目录，并获取视频的缩略图，名称，及大小等。 -->
+
+</LinearLayout>

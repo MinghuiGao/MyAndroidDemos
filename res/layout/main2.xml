@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<android.androidVNC.view.MySlidingDrawer 
+	    android:id="@+id/sd_menu"
+	    android:handle="@+id/iv_menu"
+	    android:content="@+id/ll_menu_buttons"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="left"
+	    >
+	    <ImageView 
+	        android:id="@id/iv_menu"
+	        android:layout_width="40dip"
+	        android:layout_height="40dip"
+	        android:src="@drawable/button_out"
+	        />
+	    <LinearLayout 
+	        android:id="@id/ll_menu_buttons"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        >
+
+	        <Button
+	            android:id="@+id/bt_back"
+	            android:layout_width="0dip"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="Back"
+	             />
+	        
+	        <Button
+	            android:id="@+id/bt_main_menu"
+	            android:layout_width="0dip"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="Menu"
+	             />
+	        
+	        <Button
+	            android:id="@+id/bt_setting"
+	            android:layout_width="0dip"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="Setting"
+	             />
+	        
+	        
+	    </LinearLayout>
+	</android.androidVNC.view.MySlidingDrawer>
+    
+    
+</LinearLayout>

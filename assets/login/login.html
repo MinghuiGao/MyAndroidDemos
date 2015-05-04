@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>from laptop</title>
+<style type="text/css">
+body
+{
+	font-size:18px;
+	vertical-align:middle;
+	text-align:center;
+	position:relative;
+	background-color:#FFF;
+	background-repeat:repeat-y;
+	overflow:scroll;
+	border:1px solid #CCC;
+	border-radius:5px;
+	padding:5px;
+	
+}
+#form{
+	padding:10px;
+	background-color:#09F;
+	border-radius: 5px;
+}
+.input{
+	border-radius:5px;
+	border:1px solid #909090;
+	margin:5px;
+	//添加focus发光的效果
+	-webkit-transition: box-shadow 0.30s ease-in-out;   //只让box-shadow属性做过渡效果！
+    -moz-transition:  box-shadow 0.30s ease-in-out;     
+	//end
+	required:required;
+	
+}
+.input:focus{
+	outline:none;//去掉外框，chrome下有红框。
+	border:1px solid #87c6f9;
+	box-shadow:0 0 8px rgba(255,255,255,1);//发光。
+}
+.bt{
+	background-color:#D2340F;
+	width:100px;
+	color:#FFF;
+	text-decoration:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:900;
+	font-size:15px;
+	padding:5px;
+	border-radius:3px;
+}
+.bt:hover
+{
+	background-color:#FFF;
+	color:#09F;
+	border-style:solid;
+	border:medium:#09F;
+	border-width:2px;
+}
+.bt-login{
+	background-color:#999;
+	
+}
+
+#login{
+	margin:5px;
+	margin-top:10px;
+}
+
+</style>
+
+
+</head>
+	<script type="text/javascript">
+    	function javaWork(id,msg){
+			document.getElementById(id).innerHTML = msg;
+			// alert(id +msg);
+		}
+		function clearMsg(id){
+			var name = document.getElementById(id).innerHTML;
+			if(name != null)
+			document.getElementById(id).innerHTML = "";
+		}
+		//chedk the input information.
+		function check(){
+			var name = document.getElementById("input_name").value;
+			var psw = document.getElementById("input_password").value;
+			if(name.length == 0){javaWork("name","* must input");return;}else{clearMsg("name")}
+			if(psw.length == 0){javaWork('password','* must input');return;}else{clearMsg("password")}
+			myfunction.log(name);
+			alert(name.length);
+			//myfunction.show(name);
+			var isgood = myfunction.checkUser(name,psw);
+			if(isgood){
+				//skip to the main
+			}
+				myfunction.goToMain();
+		}
+		
+    </script>
+
+<body>
+	<!--<a href = "javascript:myfunction.show('这是来自于网页的参数')">点击这里</a><br/>
+    <a href="javascript: myfunction.show('com.android.settings','com.android.setting.Settings')">开启设置</a><br />-->
+    <div id="output"></div>
+    <div id ="form">
+        <form action="" methon="" class="" id="">
+           	
+           	
+            <div><input type="text" id="input_name" name="name" size="20" onblur="check()" class="input" placeholder="&nbsp;name"/><div id="name"></div></div>
+            
+            <div><input type="password" id="input_password" name="password" onblur="check()" class="input" size="20" placeholder="&nbsp;password"/><div id="password"></div></div>
+            <div id="login" ><a  class="bt bt-login" href="#" onclick="check()" >LOGIN</a></div>
+        </form>
+        	
+    </div>
+    
+</body>
+</html>
