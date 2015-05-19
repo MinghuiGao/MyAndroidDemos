@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import cn.gaomh._2dbarcode.CaptureActivity;
 import cn.gaomh.animations.AllAniActivity;
+import cn.gaomh.camera.MultipleCameraActivity;
+import cn.gaomh.camera.MyCameraActivity;
 import cn.gaomh.location.GetLocationActivity;
 import cn.gaomh.paint.PaintActivity;
 import cn.gaomh.paint.PaintActivity2;
@@ -82,6 +84,8 @@ public class GaomhDemosActivity extends Activity implements OnClickListener, OnI
         menu.add("webview");
         menu.add("Fliper");
         menu.add("Location");
+        menu.add("自定义相机");
+        menu.add("相机类");
         
 //        PackageManager pm = getPackageManager();
 //        		PackageParser.Package pkg = packageParser.parsePackage(
@@ -166,6 +170,13 @@ public class GaomhDemosActivity extends Activity implements OnClickListener, OnI
 				Intent getLocation = new Intent(GaomhDemosActivity.this,GetLocationActivity.class);
 				startActivity(getLocation);
 				break;
+			case 14:
+				Intent camera = new Intent(GaomhDemosActivity.this,MyCameraActivity.class);
+				startActivity(camera);
+				break;
+			case 15:
+				Intent camera2 =  new Intent(GaomhDemosActivity.this,MultipleCameraActivity.class);
+				startActivity(camera2);
 			default:
 				break;
 		}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.gaomh.camera.MultipleCamera xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- 显示预览图形 -->
+
+    <SurfaceView
+        android:id="@+id/sv_camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!-- 相对布局，放置两个按钮 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_camera_back"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:text="返回" />
+
+        <!-- 拍照按钮 -->
+
+        <ImageView
+            android:id="@+id/iv_camera_shoot"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/btn_tabkepicture_selector" />
+
+        <TextView
+            android:id="@+id/tv_camera_falsh"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:text="开闪" />
+    </LinearLayout>
+
+</cn.gaomh.camera.MultipleCamera>
