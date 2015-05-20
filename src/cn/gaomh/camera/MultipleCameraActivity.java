@@ -1,10 +1,11 @@
 package cn.gaomh.camera;
 
-import cn.gaomh.R;
-import cn.gaomh.camera.IMultipleCamera.ButtonCallback;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
+import cn.gaomh.R;
+import cn.gaomh.camera.IMultipleCamera.ButtonCallback;
+import cn.gaomh.location.gps.GpsHandlerWithBroadcast;
 
 /** 
  * 功能描述 : 自定义的multiplecamera类。
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class MultipleCameraActivity extends Activity {
 
 	private  MultipleCamera mMultipleCamera;
+	private GpsHandlerWithBroadcast mGpsHandler;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,5 +39,14 @@ public class MultipleCameraActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "进行下一项", 0).show();
 			}
 		});
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if(mGpsHandler == null){
+			mGpsHandler = (GpsHandlerWithBroadcast) findViewById(R.id.gps_info);
+		}
+		mGpsHandler.detectGpsAndObtainLocation();
 	}
 }

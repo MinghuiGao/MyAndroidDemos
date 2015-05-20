@@ -40,6 +40,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:icon="@drawable/logo_final"
@@ -81,7 +82,16 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".camera.MultipleCameraActivity"
-            android:configChanges="keyboardHidden" />
+            android:configChanges="keyboardHidden"
+            android:screenOrientation="landscape" />
+
+        <service android:name=".location.gps.LocationService" />
+
+        <receiver android:name=".location.gps.GpsHandlerWithBroadcast$LocationReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="cn.gaomh.locationupdate" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

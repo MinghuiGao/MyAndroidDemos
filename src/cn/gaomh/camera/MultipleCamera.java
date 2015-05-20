@@ -38,7 +38,6 @@ import android.view.View.OnClickListener;
 public class MultipleCamera extends FrameLayout implements IMultipleCamera, OnClickListener {
 
 	private SurfaceView mSurfaceView;
-	private Context mContext;
 	private Camera mCamera;
 	private Camera.Parameters parameters = null;
 	private int[] mClickableViews = new int[]{R.id.tv_camera_back,R.id.iv_camera_shoot,R.id.tv_camera_falsh};
@@ -65,7 +64,6 @@ public class MultipleCamera extends FrameLayout implements IMultipleCamera, OnCl
 	
 	public MultipleCamera(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		this.mContext =  context;
 	}
 
 	@Override
@@ -189,7 +187,6 @@ public class MultipleCamera extends FrameLayout implements IMultipleCamera, OnCl
 		}
 		mCamera = null;
 		mClickableViews = null;
-		mContext = null;
 		mSurfaceView = null;
 	}
 
@@ -270,6 +267,7 @@ public class MultipleCamera extends FrameLayout implements IMultipleCamera, OnCl
 //		parameters.setPictureSize(mSurfaceView.getWidth(),mSurfaceView.getHeight()); // 部分定制手机，无法正常识别该方法。
 		parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);// 1连续对焦
 //		setDispaly(parameters, mCamera);
+		parameters.setRotation(90);
 		mCamera.setParameters(parameters);
 		mCamera.startPreview();
 		mCamera.cancelAutoFocus();// 如果要实现连续的自动对焦，这一句必须加上
@@ -305,7 +303,7 @@ public class MultipleCamera extends FrameLayout implements IMultipleCamera, OnCl
 				bundle = new Bundle();
 				bundle.putByteArray("bytes", data); // 将图片字节数据保存在bundle当中，实现数据交换
 				saveToSDCard(data); // 保存图片到sd卡中
-				Toast.makeText(mContext, "success!",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getContext(), "success!",Toast.LENGTH_SHORT).show();
 				mButtonCallback.onSuccess();
 				camera.startPreview(); // 拍完照后，重新开始预览
 			} catch (Exception e) {
